@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer should match snapshot 1`] = `
+<div>
+  <div
+    class="grid"
+  >
+    <a
+      class="card"
+      href="https://stackoverflow.com/users/6450931/alberto-perez"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <h2>
+        Stackoverflow 
+        <span>
+          -&gt;
+        </span>
+      </h2>
+      <p>
+        Find my interactions in the world's biggest developer platform.
+      </p>
+    </a>
+    <a
+      class="card"
+      href="https://www.linkedin.com/in/albertojpf/"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <h2>
+        LinkedIn 
+        <span>
+          -&gt;
+        </span>
+      </h2>
+      <p>
+        Learn more about my professional trajectory.
+      </p>
+    </a>
+    <a
+      class="card"
+      href="https://github.com/albertoperezf"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <h2>
+        Github 
+        <span>
+          -&gt;
+        </span>
+      </h2>
+      <p>
+        Check out some of my personal work (including this portfolio).
+      </p>
+    </a>
+  </div>
+</div>
+`;
