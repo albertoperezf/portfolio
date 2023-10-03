@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BuiltWith component should match snapshot 1`] = `
+<div>
+  <div>
+    <a
+      href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Build with
+      <img
+        alt="Next.js Logo"
+        class="logo"
+        data-nimg="1"
+        decoding="async"
+        fetchpriority="high"
+        height="24"
+        src="/next.svg"
+        style="color: transparent;"
+        width="70"
+      />
+      By
+       
+      <img
+        alt="Vercel Logo"
+        class="vercelLogo"
+        data-nimg="1"
+        decoding="async"
+        fetchpriority="high"
+        height="24"
+        src="/vercel.svg"
+        style="color: transparent;"
+        width="70"
+      />
+    </a>
+  </div>
+</div>
+`;

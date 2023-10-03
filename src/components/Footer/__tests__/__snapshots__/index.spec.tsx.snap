@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Footer should match snapshot 1`] = `
+exports[`Footer component should match snapshot 1`] = `
 <div>
   <div
     class="grid"
@@ -12,7 +12,8 @@ exports[`Footer should match snapshot 1`] = `
       target="_blank"
     >
       <h2>
-        Stackoverflow 
+        Stackoverflow
+         
         <span>
           -&gt;
         </span>
@@ -28,7 +29,8 @@ exports[`Footer should match snapshot 1`] = `
       target="_blank"
     >
       <h2>
-        LinkedIn 
+        LinkedIn
+         
         <span>
           -&gt;
         </span>
@@ -44,13 +46,31 @@ exports[`Footer should match snapshot 1`] = `
       target="_blank"
     >
       <h2>
-        Github 
+        Github
+         
         <span>
           -&gt;
         </span>
       </h2>
       <p>
         Check out some of my personal work (including this portfolio).
+      </p>
+    </a>
+    <a
+      class="card"
+      href="mailto:albertojperezf@gmail.com"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <h2>
+        Email
+         
+        <span>
+          -&gt;
+        </span>
+      </h2>
+      <p>
+        Contact directly with me.
       </p>
     </a>
   </div>

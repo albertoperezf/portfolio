@@ -2,13 +2,16 @@
 
 exports[`Header should match snapshot 1`] = `
 <div>
-  <p>
+  <a
+    class="name"
+    href="/"
+  >
     Alberto Perez 
     <code
       class="code"
     >
       Frontend Developer
     </code>
-  </p>
+  </a>
 </div>
 `;

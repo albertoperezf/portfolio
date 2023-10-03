@@ -1,6 +1,6 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "next/font/google";
+import BuiltWith from "@/components/BuiltWith";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import styles from "@/styles/Home.module.css";
@@ -24,32 +24,7 @@ export default function Home(): JSX.Element {
       <main className={`${styles.main} ${inter.className}`}>
         <div className={styles.description}>
           <Header />
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Build with
-              <Image
-                className={styles.logo}
-                src="/next.svg"
-                alt="Next.js Logo"
-                width={70}
-                height={24}
-                priority
-              />
-              By{" "}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={70}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
+          <BuiltWith />
         </div>
 
         <div className={styles.center}>
