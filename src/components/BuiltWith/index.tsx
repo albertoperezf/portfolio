@@ -1,7 +1,10 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import styles from "@/styles/Home.module.css";
 
 export default function BuiltWith(): JSX.Element {
+  const t = useTranslations("BuildWith");
+
   return (
     <div>
       <a
@@ -9,7 +12,7 @@ export default function BuiltWith(): JSX.Element {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Build with
+        {t("build")}
         <Image
           className={styles.logo}
           src="/next.svg"
@@ -18,7 +21,7 @@ export default function BuiltWith(): JSX.Element {
           height={24}
           priority
         />
-        By{" "}
+        {t("with")}{" "}
         <Image
           src="/vercel.svg"
           alt="Vercel Logo"

@@ -1,32 +1,33 @@
 import Link from "next/link";
-import styles from "@/styles/Home.module.css";
 import { useRouter } from "next/router";
+import { useTranslations } from "next-intl";
+import styles from "@/styles/Home.module.css";
 
-const homeLinks = [
-  { link: "/contact", subtitle: "Some ways to reach me.", title: "Contact" },
+const homeLinks = (subtitle: string) => [
+  { link: "/contact", subtitle, title: "Contact" },
 ];
-const contactLinks = [
+const contactLinks = (subtitles: string[]) => [
   {
     link: "https://stackoverflow.com/users/6450931/alberto-perez",
-    subtitle: `Find my interactions in the world's biggest developer platform.`,
+    subtitle: subtitles[0],
     title: "Stackoverflow",
     target: "_blank",
   },
   {
     link: "https://www.linkedin.com/in/albertojpf/",
-    subtitle: "Learn more about my professional trajectory.",
+    subtitle: subtitles[1],
     title: "LinkedIn",
     target: "_blank",
   },
   {
     link: "https://github.com/albertoperezf",
-    subtitle: "Check out some of my personal work (including this portfolio).",
+    subtitle: subtitles[2],
     title: "Github",
     target: "_blank",
   },
   {
     link: "mailto:albertojperezf@gmail.com",
-    subtitle: "Contact directly with me.",
+    subtitle: subtitles[3],
     title: "Email",
     target: "_blank",
   },
@@ -34,6 +35,7 @@ const contactLinks = [
 
 export default function Footer(): JSX.Element {
   const router = useRouter();
+  const t = useTranslations("Footer");
 
   const generateLink = ({
     link,
@@ -62,9 +64,15 @@ export default function Footer(): JSX.Element {
 
   return (
     <div className={styles.grid}>
-      {(router.pathname === "/contact" ? contactLinks : homeLinks).map((link) =>
-        generateLink(link),
-      )}
+      {(router.pathname === "/contact"
+        ? contactLinks([
+            t("stackoverflow"),
+            t("linkedin"),
+            t("github"),
+            t("email"),
+          ])
+        : homeLinks(t("contact"))
+      ).map((link) => generateLink(link))}
     </div>
   );
 }

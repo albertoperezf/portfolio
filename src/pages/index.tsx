@@ -27,19 +27,18 @@ export default function Home(): JSX.Element {
           <BuiltWith />
         </div>
 
-        <div className={styles.center}>
-          {/* <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          /> */}
-        </div>
+        <div className={styles.center}></div>
 
         <Footer />
       </main>
     </>
   );
+}
+
+export async function getStaticProps(context: { locale: string }) {
+  return {
+    props: {
+      messages: (await import(`../../messages/${context.locale}.json`)).default,
+    },
+  };
 }

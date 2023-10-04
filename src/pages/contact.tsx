@@ -20,3 +20,11 @@ export default function Contact(): JSX.Element {
     </div>
   );
 }
+
+export async function getStaticProps(context: { locale: string }) {
+  return {
+    props: {
+      messages: (await import(`../../messages/${context.locale}.json`)).default,
+    },
+  };
+}

@@ -1,0 +1,20 @@
+{
+  "Navigation": {
+    "es": "Spanish",
+    "en": "English"
+  },
+  "Header": {
+    "developer": "Frontend Developer"
+  },
+  "BuildWith": {
+    "build": "Build with",
+    "with": "By"
+  },
+  "Footer": {
+    "contact": "Some ways to reach me.",
+    "stackoverflow": "Find my interactions in the world's biggest developer platform.",
+    "linkedin": "Learn more about my professional trajectory.",
+    "github": "Check out some of my personal work (including this portfolio).",
+    "email": "Contact directly with me."
+  }
+}
