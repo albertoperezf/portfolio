@@ -6,9 +6,11 @@ export default function Header(): JSX.Element {
   const t = useTranslations("Header");
 
   return (
-    <Link className={styles.name} href="/">
-      Alberto Perez&nbsp;
-      <code className={styles.code}>{t("developer")}</code>
-    </Link>
+    <>
+      <Link className={styles.name} href="/">
+        Alberto Perez&nbsp;
+        <code className={styles.code}>{t("developer")}</code>
+      </Link>
+    </>
   );
 }

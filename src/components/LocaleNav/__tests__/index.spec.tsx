@@ -1,9 +1,9 @@
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import LocaleNav from "..";
 import messages from "../../../../messages/en-US.json";
-import messagesEs from "../../../../messages/en-US.json";
+import messagesEs from "../../../../messages/es.json";
 
 describe("LocaleNav component", () => {
   it("should render two links with correct href and text", () => {
@@ -38,7 +38,7 @@ describe("LocaleNav component", () => {
       </NextIntlClientProvider>
     );
 
-    expect(getByText("Spanish")).toBeInTheDocument();
-    expect(getByText("English")).toBeInTheDocument();
+    expect(getByText("Español")).toBeInTheDocument();
+    expect(getByText("Ingles")).toBeInTheDocument();
   });
 });
