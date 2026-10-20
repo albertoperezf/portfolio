@@ -1,17 +1,16 @@
 import type { NextConfig } from 'next';
 
 const isDev = process.env.NODE_ENV === 'development';
-const TURNSTILE = 'https://challenges.cloudflare.com';
 
 // Nonces would force request-time rendering; the site is fully static, so inline scripts are allowed instead.
 const contentSecurityPolicy = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline' ${TURNSTILE}${isDev ? " 'unsafe-eval' https://va.vercel-scripts.com" : ''}`,
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval' https://va.vercel-scripts.com" : ''}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self'",
   `connect-src 'self'${isDev ? ' ws: https://va.vercel-scripts.com' : ''}`,
-  `frame-src ${TURNSTILE}`,
+  "frame-src 'none'",
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",

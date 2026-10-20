@@ -26,6 +26,6 @@ export default defineConfig({
     url: `http://localhost:${PORT}/en`,
     reuseExistingServer: false,
     timeout: 120_000,
-    env: { PORT: String(PORT), CONTACT_DRY_RUN: '1' },
+    env: { PORT: String(PORT) },
   },
 });

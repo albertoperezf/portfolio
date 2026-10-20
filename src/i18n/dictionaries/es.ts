@@ -93,35 +93,11 @@ export const es: Dictionary = {
   contact: {
     title: 'Hablemos',
     intro:
-      '¿Tienes una pregunta sobre mi trabajo, una idea o simplemente quieres saludar? Envíame un mensaje y te responderé por correo. También puedes encontrarme en LinkedIn.',
-    form: {
-      name: 'Nombre',
-      email: 'Correo electrónico',
-      emailHint: 'Solo lo usaré para responderte.',
-      message: 'Mensaje',
-      required: '(obligatorio)',
-      submit: 'Enviar mensaje',
-      sending: 'Enviando…',
-      errorSummary: 'Hay un problema',
-      errors: {
-        name: { required: 'Escribe tu nombre', tooLong: 'Tu nombre debe tener 100 caracteres como máximo' },
-        email: {
-          required: 'Escribe tu correo electrónico',
-          invalid: 'Escribe un correo con el formato correcto, como nombre@ejemplo.com',
-          tooLong: 'Tu correo debe tener 254 caracteres como máximo',
-        },
-        message: {
-          required: 'Escribe un mensaje',
-          tooShort: 'Tu mensaje debe tener al menos 10 caracteres',
-          tooLong: 'Tu mensaje debe tener 5.000 caracteres como máximo',
-        },
-      },
-      captchaError: 'No hemos podido verificar que eres una persona. Inténtalo de nuevo.',
-      serverError: 'No se ha podido enviar tu mensaje. Inténtalo más tarde o escríbeme por LinkedIn.',
-      successTitle: 'Mensaje enviado',
-      successBody: 'Gracias por escribir. Te responderé por correo lo antes posible.',
-      honeypot: 'Deja este campo vacío',
-    },
+      '¿Quieres hablar sobre mi trabajo, una idea o un proyecto? Puedes encontrarme en estos sitios. LinkedIn es la forma más rápida de contactarme.',
+    linkedin: 'La forma más rápida de contactarme: envíame un mensaje.',
+    github: 'El código fuente de esta web y mis proyectos personales.',
+    stackOverflow: '{reputation} de reputación respondiendo preguntas.',
+    stackOverflowFallback: 'Respondiendo preguntas de frontend.',
   },
   notFound: {
     title: 'Página no encontrada',

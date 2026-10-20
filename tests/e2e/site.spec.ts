@@ -89,3 +89,18 @@ test.describe('navigation', () => {
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Página no encontrada');
   });
 });
+
+test('contact page links to LinkedIn, GitHub and Stack Overflow', async ({ page }) => {
+  await page.goto('/en/contact');
+  const main = page.getByRole('main');
+  await expect(main.getByRole('link', { name: /^LinkedIn/ })).toHaveAttribute(
+    'href',
+    'https://www.linkedin.com/in/albertojpf',
+  );
+  await expect(main.getByRole('link', { name: /^GitHub/ })).toHaveAttribute('href', 'https://github.com/albertoperezf');
+  await expect(main.getByRole('link', { name: /^Stack Overflow/ })).toHaveAttribute(
+    'href',
+    'https://stackoverflow.com/users/6450931/alberto-perez',
+  );
+  await expect(main.locator('form')).toHaveCount(0);
+});

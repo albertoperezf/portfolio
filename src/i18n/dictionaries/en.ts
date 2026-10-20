@@ -90,35 +90,11 @@ export const en = {
   contact: {
     title: 'Get in touch',
     intro:
-      'Have a question about my work, an idea, or just want to say hi? Send me a message and I’ll reply by email. You can also find me on LinkedIn.',
-    form: {
-      name: 'Name',
-      email: 'Email',
-      emailHint: 'I’ll only use it to reply to you.',
-      message: 'Message',
-      required: '(required)',
-      submit: 'Send message',
-      sending: 'Sending…',
-      errorSummary: 'There is a problem',
-      errors: {
-        name: { required: 'Enter your name', tooLong: 'Your name must be 100 characters or fewer' },
-        email: {
-          required: 'Enter your email address',
-          invalid: 'Enter an email address in the correct format, like name@example.com',
-          tooLong: 'Your email address must be 254 characters or fewer',
-        },
-        message: {
-          required: 'Enter a message',
-          tooShort: 'Your message must be at least 10 characters',
-          tooLong: 'Your message must be 5,000 characters or fewer',
-        },
-      },
-      captchaError: 'We couldn’t verify you’re human. Please try again.',
-      serverError: 'Your message couldn’t be sent. Please try again later or reach me on LinkedIn.',
-      successTitle: 'Message sent',
-      successBody: 'Thanks for writing. I’ll get back to you by email as soon as I can.',
-      honeypot: 'Leave this field empty',
-    },
+      'Want to talk about my work, an idea or a project? You can find me on these sites. LinkedIn is the quickest way to reach me.',
+    linkedin: 'The quickest way to reach me: send me a message.',
+    github: 'The source code of this site and my side projects.',
+    stackOverflow: '{reputation} reputation answering questions.',
+    stackOverflowFallback: 'Answering frontend questions.',
   },
   notFound: {
     title: 'Page not found',
