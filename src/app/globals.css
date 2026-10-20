@@ -96,19 +96,105 @@
   }
 
   .link:hover {
+    color: var(--accent);
     text-decoration-color: var(--accent);
     text-decoration-thickness: 2px;
   }
 
-  .theme-icon-dark {
+  .only-dark {
     display: none;
   }
 
-  :root[data-theme='dark'] .theme-icon-dark {
+  :root[data-theme='dark'] .only-dark {
     display: block;
   }
 
-  :root[data-theme='dark'] .theme-icon-light {
+  :root[data-theme='dark'] .only-light {
     display: none;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) .only-dark {
+      display: block;
+    }
+
+    :root:not([data-theme]) .only-light {
+      display: none;
+    }
+  }
+}
+
+/* Page transitions: a short crossfade, with the header anchored. */
+::view-transition {
+  pointer-events: none;
+}
+
+::view-transition-old(.page-fade) {
+  animation: 120ms ease-out both vt-fade reverse;
+}
+
+::view-transition-new(.page-fade) {
+  animation: 200ms ease-in 80ms both vt-fade;
+}
+
+::view-transition-group(.morph) {
+  animation-duration: 350ms;
+}
+
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+
+::view-transition-old(site-header) {
+  display: none;
+}
+
+::view-transition-new(site-header) {
+  animation: none;
+}
+
+@keyframes vt-fade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}
+
+@media print {
+  :root {
+    --bg: #fff;
+    --surface: #fff;
+    --fg: #000;
+    --muted: #333;
+    --border: #999;
+    --accent: #000;
+  }
+
+  header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+
+  main {
+    padding-top: 0 !important;
+  }
+
+  a {
+    text-decoration: none !important;
   }
 }

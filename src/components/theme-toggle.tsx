@@ -39,24 +39,24 @@ function subscribe(onChange: () => void) {
 const getSnapshot = (): Theme => (document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
 const getServerSnapshot = (): Theme | null => null;
 
+export function switchTheme() {
+  const next: Theme = getSnapshot() === 'dark' ? 'light' : 'dark';
+  applyTheme(next);
+  document.cookie = `${THEME_COOKIE}=${next}; path=/; max-age=31536000; SameSite=Lax`;
+}
+
 export function ThemeToggle({ label }: { label: string }) {
   const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
-
-  function toggle() {
-    const next: Theme = getSnapshot() === 'dark' ? 'light' : 'dark';
-    applyTheme(next);
-    document.cookie = `${THEME_COOKIE}=${next}; path=/; max-age=31536000; SameSite=Lax`;
-  }
 
   return (
     <button
       type="button"
-      onClick={toggle}
+      onClick={switchTheme}
       aria-pressed={theme === null ? undefined : theme === 'dark'}
       className="inline-flex size-11 items-center justify-center rounded-full text-fg hover:bg-surface"
     >
       <svg
-        className="theme-icon-light size-5"
+        className="only-light size-5"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -69,7 +69,7 @@ export function ThemeToggle({ label }: { label: string }) {
         <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
       </svg>
       <svg
-        className="theme-icon-dark size-5"
+        className="only-dark size-5"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"

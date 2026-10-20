@@ -25,9 +25,14 @@ export function ExperienceList({
   stackLabel: string;
 }) {
   return (
-    <ol className="space-y-12">
-      {items.map((item) => (
-        <li key={item.id}>
+    <ol className="ml-1.5 space-y-12 border-l border-border pl-8">
+      {items.map((item, index) => (
+        <li
+          key={item.id}
+          className={`relative before:absolute before:top-1.5 before:-left-[2.4rem] before:size-3 before:rounded-full before:ring-4 before:ring-bg ${
+            index === 0 && !item.roles[0].end ? 'before:bg-accent' : 'before:bg-control'
+          }`}
+        >
           <article>
             <h3 className="text-lg font-semibold tracking-tight">{item.company}</h3>
             <p className="text-sm text-muted">{item.location[locale]}</p>

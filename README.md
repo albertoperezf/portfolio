@@ -7,6 +7,10 @@ Personal portfolio in English and Spanish: statically prerendered, light and dar
   (English by default; the language switcher choice is remembered in the `NEXT_LOCALE` cookie)
 - Theme: system preference by default, toggle stored in a `theme` cookie, applied by an inline script before first paint
 - Contact: links to LinkedIn, GitHub and Stack Overflow (reputation fetched daily from the Stack Exchange API)
+- CV: `/cv/alberto-perez-faria-cv-{en,es}.pdf`, generated at build time with `@react-pdf/renderer` from the same content
+  as the About page (`src/app/cv/[file]/route.tsx`)
+- Extras: ⌘K / Ctrl+K command menu, view transitions between pages, an accessible 10,000-row data grid demo
+  (`/lab/data-grid`) and an accessibility statement
 - Quality gates: ESLint (strict jsx-a11y), Vitest + Testing Library, Playwright + axe (both languages, both themes,
   mobile and desktop), Lighthouse CI budgets
 
@@ -32,8 +36,8 @@ If Playwright can't download its browser (corporate proxy), use the installed Ch
 
 ## Content
 
-- Profile, experience, education, certifications: `src/content/profile.ts`
-- Projects and case studies: `src/content/projects.ts` (screenshots in `public/work/`)
+- Profile, experience, skills, education, certifications: `src/content/profile.ts` (also feeds the PDF CV)
+- Projects, case studies, lab demos and earlier projects: `src/content/projects.ts` (screenshots in `public/work/`)
 - UI copy: `src/i18n/dictionaries/{en,es}.ts` (`es` is typed against `en`, so a missing key fails `tsc`)
 
 ## Deploying to Vercel

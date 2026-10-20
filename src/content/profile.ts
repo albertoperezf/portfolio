@@ -14,8 +14,14 @@ export const profile = {
     linkedin: 'https://www.linkedin.com/in/albertojpf',
     stackOverflow: 'https://stackoverflow.com/users/6450931/alberto-perez',
   },
+  sourceUrl: 'https://github.com/albertoperezf/portfolio',
   stackOverflowUserId: 6450931,
 } as const;
+
+/** Public path of the CV generated from this content (see src/app/cv). */
+export function cvPath(locale: Locale): string {
+  return `/cv/alberto-perez-faria-cv-${locale}.pdf`;
+}
 
 export interface Role {
   title: Localized;
@@ -177,18 +183,88 @@ export interface Certification {
   year?: string;
   /** Language of the name, when it differs from the page language. */
   lang?: string;
+  /** Shown up front; the rest are folded away. */
+  highlight?: boolean;
 }
 
 export const certifications: Certification[] = [
-  { name: 'AI Fluency: Framework & Foundations', issuer: 'Anthropic' },
-  { name: 'EF SET English Certificate 80/100 (C2 Proficient)', issuer: 'EF', year: '2023' },
+  { name: 'Scrum Manager (#20288)', issuer: 'Scrum Manager', year: '2017', highlight: true },
+  { name: 'EF SET English Certificate 80/100 (C2 Proficient)', issuer: 'EF', year: '2023', highlight: true },
+  { name: 'AI Fluency: Framework & Foundations', issuer: 'Anthropic', highlight: true },
+  { name: 'React Advanced Workshop', issuer: 'React Amsterdam', year: '2018', highlight: true },
   { name: 'React JS Web Development – The Essentials Bootcamp', issuer: 'Udemy' },
   { name: 'JavaScript – The Complete Guide (Beginner + Advanced)', issuer: 'Udemy', year: '2023' },
   { name: 'Next.js & React – The Complete Guide', issuer: 'Udemy', year: '2023' },
   { name: 'Understanding TypeScript', issuer: 'Udemy', year: '2023' },
   { name: 'Diseñando servicios y modelos de datos', lang: 'es' },
-  { name: 'React Advanced Workshop', issuer: 'React Amsterdam', year: '2018' },
-  { name: 'Scrum Manager (#20288)', issuer: 'Scrum Manager', year: '2017' },
+];
+
+export interface SkillGroup {
+  name: Localized;
+  items: Localized<string[]>;
+}
+
+const same = (items: string[]): Localized<string[]> => ({ en: items, es: items });
+
+export const skills: SkillGroup[] = [
+  {
+    name: { en: 'Languages & frameworks', es: 'Lenguajes y frameworks' },
+    items: same([
+      'TypeScript',
+      'JavaScript',
+      'React',
+      'Next.js',
+      'Redux',
+      'Zustand',
+      'Node.js',
+      'Express',
+      'HTML',
+      'CSS',
+      'Sass',
+      'Tailwind CSS',
+      'Styled Components',
+    ]),
+  },
+  {
+    name: { en: 'Data', es: 'Datos' },
+    items: same(['REST', 'GraphQL', 'PostgreSQL', 'Drizzle ORM']),
+  },
+  {
+    name: { en: 'Testing & quality', es: 'Testing y calidad' },
+    items: same([
+      'Jest',
+      'Vitest',
+      'React Testing Library',
+      'Playwright',
+      'axe',
+      'Lighthouse CI',
+      'ESLint',
+      'Prettier',
+    ]),
+  },
+  {
+    name: { en: 'Tooling', es: 'Herramientas' },
+    items: same(['Git', 'GitHub Actions', 'Jenkins', 'Webpack', 'Turbopack', 'npm', 'Vercel']),
+  },
+  {
+    name: { en: 'Practices', es: 'Prácticas' },
+    items: {
+      en: [
+        'Accessibility (WCAG 2.2)',
+        'Web performance',
+        'Internationalisation',
+        'Scrum & Kanban',
+        'AI-assisted development (Claude)',
+      ],
+      es: [
+        'Accesibilidad (WCAG 2.2)',
+        'Rendimiento web',
+        'Internacionalización',
+        'Scrum y Kanban',
+        'Desarrollo asistido por IA (Claude)',
+      ],
+    },
+  },
 ];
 
 export const spokenLanguages: { name: Localized; level: Localized }[] = [

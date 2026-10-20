@@ -11,7 +11,8 @@ import { themeScript } from '@/lib/theme';
 import '../globals.css';
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
-const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] });
+// Only used for small labels, so it shouldn't compete with the main font for bandwidth.
+const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'], preload: false });
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -57,7 +58,7 @@ export default async function LocaleLayout({ children }: LayoutProps<'/[locale]'
           {t.a11y.skipToContent}
         </a>
         <SiteHeader />
-        <main id="main" tabIndex={-1} className="mx-auto w-full max-w-3xl flex-1 px-6 pt-16 outline-none sm:pt-24">
+        <main id="main" tabIndex={-1} className="mx-auto w-full max-w-5xl flex-1 px-6 pt-14 outline-none sm:pt-24">
           {children}
         </main>
         <SiteFooter />

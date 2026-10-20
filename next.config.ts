@@ -30,6 +30,8 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   poweredByHeader: false,
+  env: { BUILD_DATE: new Date().toISOString() },
+  serverExternalPackages: ['@react-pdf/renderer'],
   turbopack: {
     // A stray package-lock.json in a parent folder would otherwise be picked as the root.
     root: process.cwd(),

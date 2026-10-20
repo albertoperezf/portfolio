@@ -6,7 +6,9 @@
       "url": [
         "http://localhost:3200/en",
         "http://localhost:3200/es/about",
+        "http://localhost:3200/en/work",
         "http://localhost:3200/en/work/convocatoria",
+        "http://localhost:3200/en/lab/data-grid",
         "http://localhost:3200/en/contact"
       ],
       "numberOfRuns": 3

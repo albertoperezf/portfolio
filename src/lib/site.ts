@@ -7,7 +7,19 @@ export const siteUrl = (
 ).replace(/\/$/, '');
 
 /** Routes shared by both locales (without the locale prefix). */
-export const staticRoutes = ['/', '/work', '/work/convocatoria', '/about', '/contact'] as const;
+export const staticRoutes = [
+  '/',
+  '/work',
+  '/work/convocatoria',
+  '/work/portfolio',
+  '/lab/data-grid',
+  '/about',
+  '/contact',
+  '/accessibility',
+] as const;
+
+/** ISO timestamp of the build, inlined by next.config.ts. */
+export const buildDate = process.env.BUILD_DATE ?? '2026-01-01T00:00:00.000Z';
 
 export function localizedPath(locale: string, path: string): string {
   return path === '/' ? `/${locale}` : `/${locale}${path}`;
