@@ -46,7 +46,13 @@ export default async function LocaleLayout({ children }: LayoutProps<'/[locale]'
   const { locale, t } = await getDictionary();
 
   return (
-    <html lang={locale} className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
+    // data-scroll-behavior lets Next.js jump (not smooth-scroll) to the top on navigation.
+    <html
+      lang={locale}
+      data-scroll-behavior="smooth"
+      className={`${geistSans.variable} ${geistMono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>

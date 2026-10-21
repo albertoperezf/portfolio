@@ -98,4 +98,36 @@ test.describe('layout', () => {
     await page.getByText('The site you are reading').click({ force: true });
     await expect(page).toHaveURL(/\/en\/work\/portfolio$/);
   });
+
+  test('pages swap instantly, without crossfading old and new content', async ({ page }) => {
+    await page.addInitScript(() => {
+      const w = window as unknown as { __transitions: number };
+      w.__transitions = 0;
+      const original = document.startViewTransition?.bind(document);
+      if (original) {
+        document.startViewTransition = ((...args: Parameters<typeof original>) => {
+          w.__transitions += 1;
+          return original(...args);
+        }) as typeof document.startViewTransition;
+      }
+    });
+    // Only pages that share a project thumbnail morph; plain page changes must not start a view transition.
+    await page.goto('/en/about');
+    await page.waitForLoadState('networkidle');
+    const nav = page.getByRole('navigation', { name: 'Main' });
+    for (const name of ['Contact', 'About', 'Contact']) {
+      await nav.getByRole('link', { name }).click();
+      await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+    }
+    expect(await page.evaluate(() => (window as unknown as { __transitions: number }).__transitions)).toBe(0);
+  });
+
+  test('navigating after scrolling jumps to the top instead of smooth scrolling', async ({ page }) => {
+    await page.goto('/en/about');
+    await page.waitForLoadState('networkidle');
+    await page.evaluate(() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'instant' }));
+    await page.getByRole('contentinfo').getByRole('link', { name: 'Accessibility' }).click();
+    await expect(page).toHaveURL(/\/en\/accessibility$/);
+    await expect.poll(() => page.evaluate(() => window.scrollY), { timeout: 150 }).toBe(0);
+  });
 });

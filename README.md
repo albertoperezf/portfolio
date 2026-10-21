@@ -9,7 +9,7 @@ Personal portfolio in English and Spanish: statically prerendered, light and dar
 - Contact: links to LinkedIn, GitHub and Stack Overflow (reputation fetched daily from the Stack Exchange API)
 - CV: `/cv/alberto-perez-faria-cv-{en,es}.pdf`, generated at build time with `@react-pdf/renderer` from the same content
   as the About page (`src/app/cv/[file]/route.tsx`)
-- Extras: ⌘K / Ctrl+K command menu, view transitions between pages, an accessible 10,000-row data grid demo
+- Extras: ⌘K / Ctrl+K command menu, project thumbnails that morph into the case study (instant page swaps otherwise), an accessible 10,000-row data grid demo
   (`/lab/data-grid`) and an accessibility statement
 - Quality gates: ESLint (strict jsx-a11y), Vitest + Testing Library, Playwright + axe (both languages, both themes,
   mobile and desktop), Lighthouse CI budgets

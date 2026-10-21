@@ -1,6 +1,9 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
+// axe on long pages can exceed the default 30 s when many workers run in parallel.
+test.describe.configure({ timeout: 60_000 });
+
 const routes = [
   '',
   '/work',
