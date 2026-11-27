@@ -8,6 +8,7 @@ const routes = [
   '',
   '/work',
   '/work/convocatoria',
+  '/work/mybabylog',
   '/work/portfolio',
   '/lab/data-grid',
   '/about',

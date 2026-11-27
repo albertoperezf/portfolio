@@ -5,6 +5,7 @@ import { en } from '@/i18n/dictionaries/en';
 import { es } from '@/i18n/dictionaries/es';
 import { earlierProjects, experiments, projects } from '@/content/projects';
 import { experience, earlierExperience, skills } from '@/content/profile';
+import { staticRoutes } from '@/lib/site';
 
 function leaves(value: unknown, path = ''): [string, unknown][] {
   if (value && typeof value === 'object') {
@@ -55,6 +56,16 @@ describe('content', () => {
     ]);
     for (const path of paths) {
       expect(existsSync(join(process.cwd(), 'public', path)), path).toBe(true);
+    }
+  });
+
+  it('has unique project slugs and includes every case study in staticRoutes', () => {
+    const slugs = projects.map((project) => project.slug);
+    expect(new Set(slugs).size).toBe(slugs.length);
+    for (const project of projects) {
+      if (project.caseStudy) {
+        expect(staticRoutes).toContain(`/work/${project.slug}`);
+      }
     }
   });
 });

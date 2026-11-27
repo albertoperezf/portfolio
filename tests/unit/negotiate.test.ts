@@ -9,6 +9,8 @@ describe('negotiateLocale', () => {
     ['fr-FR,de;q=0.9', 'en'],
     ['en;q=0.4,es;q=0.8', 'es'],
     ['es;q=0,en', 'en'],
+    ['es;q=2,en;q=0.5', 'en'],
+    ['es;q=-0.5,en;q=0.5', 'en'],
     ['ES-mx', 'es'],
     ['', 'en'],
     [null, 'en'],

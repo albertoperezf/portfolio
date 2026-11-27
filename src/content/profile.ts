@@ -5,7 +5,6 @@ export type Localized<T = string> = Record<Locale, T>;
 export const profile = {
   name: 'Alberto Pérez Faria',
   fullName: 'Alberto José Pérez Faria',
-  initials: 'AP',
   location: { city: 'Madrid', country: 'ES' },
   // First professional frontend work (freelance); drives the "years of experience" figure.
   careerStart: '2015-01-01',
@@ -32,7 +31,6 @@ export interface Role {
 export interface Experience {
   id: string;
   company: string;
-  url?: string;
   location: Localized;
   roles: Role[];
   description: Localized;
@@ -43,7 +41,6 @@ export const experience: Experience[] = [
   {
     id: 'cognizant',
     company: 'Cognizant',
-    url: 'https://www.cognizant.com',
     location: { en: 'Madrid, Spain (remote)', es: 'Madrid, España (remoto)' },
     roles: [{ title: { en: 'Senior Frontend Developer', es: 'Senior Frontend Developer' }, start: '2023-12' }],
     description: {
@@ -55,7 +52,6 @@ export const experience: Experience[] = [
   {
     id: 'gft',
     company: 'GFT Group',
-    url: 'https://www.gft.com',
     location: { en: 'Madrid, Spain', es: 'Madrid, España' },
     roles: [
       { title: { en: 'Senior Frontend Developer', es: 'Senior Frontend Developer' }, start: '2020-04', end: '2023-12' },

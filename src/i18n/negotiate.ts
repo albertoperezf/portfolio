@@ -9,8 +9,9 @@ export function negotiateLocale(acceptLanguage: string | null | undefined): Loca
     .map((part, index) => {
       const [tag, ...params] = part.trim().split(';');
       const q = params.map((p) => p.trim()).find((p) => p.startsWith('q='));
-      const quality = q ? Number.parseFloat(q.slice(2)) : 1;
-      return { tag: tag.toLowerCase(), quality: Number.isNaN(quality) ? 0 : quality, index };
+      const raw = q ? Number(q.slice(2)) : 1;
+      const quality = Number.isFinite(raw) && raw >= 0 && raw <= 1 ? raw : 0;
+      return { tag: tag.toLowerCase(), quality, index };
     })
     .filter(({ tag, quality }) => tag && quality > 0)
     .sort((a, b) => b.quality - a.quality || a.index - b.index);

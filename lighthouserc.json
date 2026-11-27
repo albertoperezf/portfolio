@@ -8,6 +8,7 @@
         "http://localhost:3200/es/about",
         "http://localhost:3200/en/work",
         "http://localhost:3200/en/work/convocatoria",
+        "http://localhost:3200/en/work/mybabylog",
         "http://localhost:3200/en/lab/data-grid",
         "http://localhost:3200/en/contact"
       ],

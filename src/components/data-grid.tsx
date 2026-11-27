@@ -226,11 +226,11 @@ export function DataGrid({ copy, locale }: { copy: Copy; locale: Locale }) {
         </div>
       </div>
 
-      <p role="status" className="mt-6 text-sm text-muted">
+      <output className="mt-6 block text-sm text-muted">
         {copy.results
           .replace('{count}', numberFormat.format(displayed.length))
           .replace('{total}', numberFormat.format(TOTAL_ROWS))}
-      </p>
+      </output>
       <p id={instructionsId} className="sr-only">
         {copy.instructions}
       </p>

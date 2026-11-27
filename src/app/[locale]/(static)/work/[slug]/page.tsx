@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import { ViewTransition } from 'react';
 import { ArrowRightIcon } from '@/components/icons';
 import { TechList } from '@/components/tech-list';
-import { ThemedImage } from '@/components/themed-image';
+import { ThemedImageLink } from '@/components/themed-image';
 import { pageTitleClass } from '@/components/typography';
 import { getProject, projects } from '@/content/projects';
 import { getDictionary } from '@/i18n/dictionaries';
@@ -80,19 +80,16 @@ export default async function CaseStudyPage({ params }: PageProps<'/[locale]/wor
 
       {project.thumbnail && (
         <ViewTransition name={`project-${project.slug}`} share="morph" default="none">
-          <a
-            href={project.thumbnail.light}
-            className="mt-12 block overflow-hidden rounded-2xl border border-border bg-surface"
-          >
-            <ThemedImage
+          <div className="mt-12 overflow-hidden rounded-2xl border border-border bg-surface">
+            <ThemedImageLink
               {...project.thumbnail}
               alt={project.thumbnail.alt[locale]}
               sizes="(min-width: 1024px) 976px, 100vw"
               eager
               className="h-auto w-full"
+              openFullSizeLabel={t.a11y.openFullSize}
             />
-            <span className="sr-only">{t.a11y.openFullSize}</span>
-          </a>
+          </div>
         </ViewTransition>
       )}
 

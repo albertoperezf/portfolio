@@ -19,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function HomePage() {
   const { locale, t } = await getDictionary();
   const [years, so] = await Promise.all([getYearsOfExperience(), getStackOverflowStats()]);
-  const featured = [getProject('convocatoria')!, getProject('portfolio')!];
+  const featured = [getProject('convocatoria')!, getProject('mybabylog')!, getProject('portfolio')!];
 
   const personJsonLd = {
     '@context': 'https://schema.org',
@@ -131,8 +131,8 @@ export default async function HomePage() {
           </Link>
         </div>
         <ul className="mt-12 grid gap-6 md:grid-cols-2">
-          {featured.map((project) => (
-            <li key={project.slug}>
+          {featured.map((project, index) => (
+            <li key={project.slug} className={index === 0 && featured.length % 2 === 1 ? 'md:col-span-2' : undefined}>
               <ProjectCard project={project} locale={locale} copy={t.work} />
             </li>
           ))}

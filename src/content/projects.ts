@@ -180,6 +180,141 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: 'mybabylog',
+    name: 'MyBabyLog',
+    kind: { en: 'Personal project · Live PWA', es: 'Proyecto personal · PWA en producción' },
+    summary: {
+      en: 'A private, offline-first PWA for newborn care: two-tap feeding and diaper logs, live sleep, breastfeeding and pumping timers, WHO growth curves, vaccines, medications and encrypted backups.',
+      es: 'Una PWA privada y offline-first para el cuidado del recién nacido: registro de tomas y pañales en dos toques, temporizadores de sueño, lactancia y extracción, curvas de crecimiento de la OMS, vacunas, medicación y copias cifradas.',
+    },
+    tech: [
+      'Next.js 16',
+      'React 19',
+      'TypeScript',
+      'Tailwind CSS 4',
+      'Dexie (IndexedDB)',
+      'Serwist (PWA)',
+      'Zod',
+      'Web Push',
+      'Vitest',
+      'Playwright',
+      'axe',
+    ],
+    liveUrl: 'https://mybabylog.vercel.app',
+    sourceUrl: 'https://github.com/albertoperezf/mybaby',
+    thumbnail: {
+      light: '/work/mybabylog-desktop-light.png',
+      dark: '/work/mybabylog-desktop-dark.png',
+      width: 1600,
+      height: 900,
+      alt: {
+        en: 'MyBabyLog landing page with an interactive phone preview showing feeding timers, quick-log presets and theme switching.',
+        es: 'Página principal de MyBabyLog con una vista previa móvil interactiva que muestra temporizadores de tomas, accesos rápidos y cambio de tema.',
+      },
+    },
+    caseStudy: {
+      intro: {
+        en: 'Taking care of a newborn at 3 AM leaves no room for sign-up forms, ads or slow apps. I built MyBabyLog as a calm, offline-first PWA designed for one-handed use where every record stays on the parent’s device.',
+        es: 'Cuidar a un recién nacido a las 3 de la mañana no deja margen para formularios de registro, anuncios ni apps lentas. Construí MyBabyLog como una PWA tranquila y offline-first pensada para usarse con una sola mano, donde todos los datos se quedan en el dispositivo.',
+      },
+      role: {
+        en: 'Solo project: product definition, UX and visual design, offline architecture, testing and deployment.',
+        es: 'Proyecto en solitario: definición de producto, UX y diseño visual, arquitectura offline, testing y despliegue.',
+      },
+      sections: [
+        {
+          heading: { en: 'What it does', es: 'Qué hace' },
+          items: {
+            en: [
+              'Two-tap feeding and diaper logging with one-tap presets, back-dated times, instant undo and multi-baby (twins) support.',
+              'Live timers for sleep, breastfeeding (with left/right switcher and pause) and pumping that survive page reloads.',
+              'Growth tracking plotted against official WHO Child Growth Standards (0–5 years) with percentiles and corrected age for preterm babies.',
+              'Vaccines (US CDC and Spain AEP schedules), medications with one-tap repeat cards and doctor visits with printable summaries.',
+              'Smart feeding and custom reminders with quiet hours, .ics calendar export and optional closed-app Web Push alerts.',
+              'Plain or AES-256-GCM encrypted JSON backups, caregiver file sharing with merge import and CSV export/import.',
+            ],
+            es: [
+              'Registro de tomas y pañales en dos toques con accesos rápidos, horas pasadas, deshacer al instante y soporte para varios bebés (gemelos).',
+              'Temporizadores en vivo para sueño, lactancia (con cambio de lado y pausa) y extracción que sobreviven a recargas de página.',
+              'Seguimiento de crecimiento frente a las curvas oficiales de la OMS (0–5 años) con percentiles y edad corregida para prematuros.',
+              'Vacunas (calendarios CDC de EE. UU. y AEP de España), medicación con tarjetas de repetición en un toque y visitas al pediatra imprimibles.',
+              'Recordatorios inteligentes de tomas y personalizados con horario de silencio, exportación a calendario (.ics) y notificaciones Web Push opcionales con la app cerrada.',
+              'Copias de seguridad JSON en claro o cifradas con AES-256-GCM, intercambio por archivo entre cuidadores con fusión inteligente y exportación/importación CSV.',
+            ],
+          },
+        },
+        {
+          heading: { en: 'Key decisions', es: 'Decisiones clave' },
+          items: {
+            en: [
+              '100% on-device storage with Dexie (IndexedDB), no accounts and a strict CSP (connect-src ’self’) so data never leaves the phone unless exported.',
+              'Sync-ready schema from day one: ULIDs, updatedAt timestamps, deletedAt tombstones and last-write-wins merge imports.',
+              'Three themes — Light, Dark and a red-shifted Night mode (optionally automatic from 9 PM to 6 AM) — in English and Spanish, with oz/ml and lb-in/kg-cm units.',
+              'Installable PWA powered by Serwist with precached routes, persistent storage requests and weekly backup nudges.',
+            ],
+            es: [
+              'Almacenamiento 100 % en el dispositivo con Dexie (IndexedDB), sin cuentas y con una CSP estricta (connect-src ’self’) para que los datos nunca salgan del móvil salvo al exportarlos.',
+              'Esquema preparado para sincronización desde el primer día: ULIDs, marcas updatedAt, tombstones deletedAt e importación con fusión last-write-wins.',
+              'Tres temas — claro, oscuro y un modo Noche en tonos rojizos (opcionalmente automático de 21:00 a 6:00) — en español e inglés, con unidades oz/ml y lb-in/kg-cm.',
+              'PWA instalable con Serwist, rutas precacheadas para uso sin conexión, solicitud de almacenamiento persistente y avisos semanales de copia de seguridad.',
+            ],
+          },
+        },
+        {
+          heading: { en: 'Quality as a feature', es: 'La calidad como funcionalidad' },
+          items: {
+            en: [
+              'Unit and IndexedDB integration tests with Vitest and fake-indexeddb.',
+              'Playwright end-to-end suite covering core flows, offline behaviour and axe WCAG AA checks across all three themes.',
+              'Timezone and DST-safe day bucketing with a configurable day-start hour so 2 AM feeds still count toward the previous evening.',
+            ],
+            es: [
+              'Tests unitarios y de integración con IndexedDB usando Vitest y fake-indexeddb.',
+              'Suite end-to-end con Playwright cubriendo flujos principales, funcionamiento offline y comprobaciones WCAG AA con axe en los tres temas.',
+              'Agrupación diaria resistente a zonas horarias y cambios de hora, con hora de inicio de día configurable para que las tomas de las 2:00 cuenten en la noche anterior.',
+            ],
+          },
+        },
+      ],
+      screenshots: [
+        {
+          src: '/work/mybabylog-desktop-light.png',
+          width: 1600,
+          height: 900,
+          wide: true,
+          alt: {
+            en: 'MyBabyLog on desktop in light mode with the interactive mobile preview.',
+            es: 'MyBabyLog en escritorio en modo claro con la vista previa móvil interactiva.',
+          },
+          caption: { en: 'Desktop, light mode.', es: 'Escritorio, modo claro.' },
+        },
+        {
+          src: '/work/mybabylog-mobile-light.png',
+          width: 780,
+          height: 1688,
+          alt: {
+            en: 'MyBabyLog on a phone in light mode showing the hero headline and quick-start actions.',
+            es: 'MyBabyLog en un móvil en modo claro con el titular principal y las acciones de inicio rápido.',
+          },
+          caption: { en: 'Mobile, light mode.', es: 'Móvil, modo claro.' },
+        },
+        {
+          src: '/work/mybabylog-mobile-dark.png',
+          width: 780,
+          height: 1688,
+          alt: {
+            en: 'MyBabyLog on a phone in dark mode.',
+            es: 'MyBabyLog en un móvil en modo oscuro.',
+          },
+          caption: {
+            en: 'Mobile, dark mode (follows the system setting).',
+            es: 'Móvil, modo oscuro (sigue la preferencia del sistema).',
+          },
+        },
+      ],
+    },
+  },
+  {
     slug: 'portfolio',
     name: 'This portfolio',
     kind: { en: 'Personal project · Open source', es: 'Proyecto personal · Código abierto' },

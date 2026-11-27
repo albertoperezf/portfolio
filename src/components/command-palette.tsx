@@ -201,9 +201,9 @@ export function CommandPalette({ items, copy }: { items: PaletteItem[]; copy: Pa
           ))}
           {!results.length && <p className="px-3 py-6 text-center text-muted">{copy.noResults}</p>}
         </div>
-        <p role="status" className="sr-only">
+        <output className="sr-only">
           {results.length ? copy.results.replace('{count}', String(results.length)) : copy.noResults}
-        </p>
+        </output>
       </dialog>
     </>
   );
