@@ -5,6 +5,7 @@ import { en } from '@/i18n/dictionaries/en';
 import { es } from '@/i18n/dictionaries/es';
 import { earlierProjects, experiments, projects } from '@/content/projects';
 import { experience, earlierExperience, skills } from '@/content/profile';
+import { clients, employers } from '@/content/proof';
 import { staticRoutes } from '@/lib/site';
 
 function leaves(value: unknown, path = ''): [string, unknown][] {
@@ -50,10 +51,14 @@ describe('content', () => {
   });
 
   it('references images that exist in /public', () => {
-    const paths = projects.flatMap((project) => [
-      ...(project.thumbnail ? [project.thumbnail.light, project.thumbnail.dark] : []),
-      ...(project.caseStudy?.screenshots.map((shot) => shot.src) ?? []),
-    ]);
+    const paths = [
+      ...projects.flatMap((project) => [
+        ...(project.thumbnail ? [project.thumbnail.light, project.thumbnail.dark] : []),
+        ...(project.mobilePreview ? [project.mobilePreview.light, project.mobilePreview.dark] : []),
+        ...(project.caseStudy?.screenshots.map((shot) => shot.src) ?? []),
+      ]),
+      ...[...employers, ...clients].map((company) => company.logo),
+    ];
     for (const path of paths) {
       expect(existsSync(join(process.cwd(), 'public', path)), path).toBe(true);
     }

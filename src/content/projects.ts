@@ -33,6 +33,8 @@ export interface Project {
   liveUrl?: string;
   sourceUrl?: string;
   thumbnail?: Thumbnail;
+  /** Phone-sized screenshot shown in the home page showcase. */
+  mobilePreview?: Thumbnail;
   /** Projects without a case study are listed but not linked. */
   caseStudy?: { intro: Localized; role: Localized; sections: CaseStudySection[]; screenshots: Screenshot[] };
 }
@@ -57,6 +59,16 @@ export const projects: Project[] = [
       alt: {
         en: 'Convocatoria home screen: next match details and the squad split by team.',
         es: 'Pantalla principal de Convocatoria: datos del próximo partido y la convocatoria por equipos.',
+      },
+    },
+    mobilePreview: {
+      light: '/work/convocatoria-light.png',
+      dark: '/work/convocatoria-dark.png',
+      width: 780,
+      height: 1688,
+      alt: {
+        en: 'Convocatoria on a phone: next match details and the squad split by team, with player names blurred.',
+        es: 'Convocatoria en un móvil: datos del próximo partido y la convocatoria por equipos, con los nombres difuminados.',
       },
     },
     caseStudy: {
@@ -212,6 +224,16 @@ export const projects: Project[] = [
         es: 'Página principal de MyBabyLog con una vista previa móvil interactiva que muestra temporizadores de tomas, accesos rápidos y cambio de tema.',
       },
     },
+    mobilePreview: {
+      light: '/work/mybabylog-app-light.png',
+      dark: '/work/mybabylog-app-dark.png',
+      width: 780,
+      height: 1688,
+      alt: {
+        en: 'MyBabyLog on a phone: baby profile, time since the last feed, sleep, breast and pump timers and one-tap feeding presets.',
+        es: 'MyBabyLog en un móvil: perfil del bebé, tiempo desde la última toma, temporizadores de sueño, lactancia y extracción y accesos rápidos para registrar tomas.',
+      },
+    },
     caseStudy: {
       intro: {
         en: 'Taking care of a newborn at 3 AM leaves no room for sign-up forms, ads or slow apps. I built MyBabyLog as a calm, offline-first PWA designed for one-handed use where every record stays on the parent’s device.',
@@ -289,27 +311,24 @@ export const projects: Project[] = [
           caption: { en: 'Desktop, light mode.', es: 'Escritorio, modo claro.' },
         },
         {
-          src: '/work/mybabylog-mobile-light.png',
+          src: '/work/mybabylog-app-light.png',
           width: 780,
           height: 1688,
           alt: {
-            en: 'MyBabyLog on a phone in light mode showing the hero headline and quick-start actions.',
-            es: 'MyBabyLog en un móvil en modo claro con el titular principal y las acciones de inicio rápido.',
+            en: 'The MyBabyLog home screen on a phone in light mode: time since the last feed, timers and one-tap presets.',
+            es: 'La pantalla de inicio de MyBabyLog en un móvil en modo claro: tiempo desde la última toma, temporizadores y accesos rápidos.',
           },
-          caption: { en: 'Mobile, light mode.', es: 'Móvil, modo claro.' },
+          caption: { en: 'The app, light mode.', es: 'La app, modo claro.' },
         },
         {
-          src: '/work/mybabylog-mobile-dark.png',
+          src: '/work/mybabylog-app-dark.png',
           width: 780,
           height: 1688,
           alt: {
-            en: 'MyBabyLog on a phone in dark mode.',
-            es: 'MyBabyLog en un móvil en modo oscuro.',
+            en: 'The same MyBabyLog home screen in dark mode.',
+            es: 'La misma pantalla de inicio de MyBabyLog en modo oscuro.',
           },
-          caption: {
-            en: 'Mobile, dark mode (follows the system setting).',
-            es: 'Móvil, modo oscuro (sigue la preferencia del sistema).',
-          },
+          caption: { en: 'The app, dark mode.', es: 'La app, modo oscuro.' },
         },
       ],
     },
@@ -340,8 +359,18 @@ export const projects: Project[] = [
       width: 1920,
       height: 1200,
       alt: {
-        en: 'Home page of this portfolio with the headline and key facts.',
-        es: 'Página de inicio de este portfolio con el titular y los datos clave.',
+        en: 'Home page of this portfolio: the headline, an introduction and a phone previewing my projects.',
+        es: 'Página de inicio de este portfolio: el titular, una introducción y un móvil con una vista previa de mis proyectos.',
+      },
+    },
+    mobilePreview: {
+      light: '/work/portfolio-mobile-light.png',
+      dark: '/work/portfolio-mobile-dark.png',
+      width: 780,
+      height: 1688,
+      alt: {
+        en: 'The home page of this portfolio on a phone: the headline, the introduction and the main actions.',
+        es: 'La página de inicio de este portfolio en un móvil: el titular, la introducción y las acciones principales.',
       },
     },
     caseStudy: {

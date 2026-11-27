@@ -42,10 +42,53 @@ export const GaugeIcon = (props: IconProps) => (
   </Icon>
 );
 
-export const LayersIcon = (props: IconProps) => (
+export const HeartIcon = (props: IconProps) => (
   <Icon {...props}>
-    <path d="M12 2l10 5-10 5L2 7l10-5z" />
-    <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z" />
+  </Icon>
+);
+
+export const BallIcon = (props: IconProps) => (
+  <Icon {...props}>
+    <circle cx="12" cy="12" r="10" />
+    <path d="M12 7.5l3.8 2.8-1.5 4.4H9.7l-1.5-4.4zM12 7.5V2.2M15.8 10.3l5.1-1.6M14.3 14.7l3.1 4.3M9.7 14.7l-3.1 4.3M8.2 10.3L3.1 8.7" />
+  </Icon>
+);
+
+export const TrophyIcon = (props: IconProps) => (
+  <Icon {...props}>
+    <path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3" />
+  </Icon>
+);
+
+export const GamepadIcon = (props: IconProps) => (
+  <Icon {...props}>
+    <path d="M6 11h4M8 9v4M15 12h.01M18 10h.01" />
+    <path d="M17.3 5H6.7a4 4 0 0 0-3.9 3.2l-1.6 7.5A2.5 2.5 0 0 0 3.7 19c.9 0 1.7-.5 2.1-1.3L7 15.5h10l1.2 2.2c.4.8 1.2 1.3 2.1 1.3a2.5 2.5 0 0 0 2.5-3.3l-1.6-7.5A4 4 0 0 0 17.3 5z" />
+  </Icon>
+);
+
+export const CodeIcon = (props: IconProps) => (
+  <Icon {...props}>
+    <path d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
+  </Icon>
+);
+
+export const PauseIcon = (props: IconProps) => (
+  <Icon {...props}>
+    <path d="M8 5v14M16 5v14" />
+  </Icon>
+);
+
+export const PlayIcon = (props: IconProps) => (
+  <Icon {...props}>
+    <path d="M7 4l13 8-13 8z" />
+  </Icon>
+);
+
+export const ExternalIcon = (props: IconProps) => (
+  <Icon {...props}>
+    <path d="M7 17L17 7M8 7h9v9" />
   </Icon>
 );
 

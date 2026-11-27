@@ -131,3 +131,61 @@ test.describe('layout', () => {
     await expect.poll(() => page.evaluate(() => window.scrollY), { timeout: 150 }).toBe(0);
   });
 });
+
+test.describe('landing page', () => {
+  test('the phone showcase follows the project selector and stops when paused', async ({ page }) => {
+    await page.goto('/en');
+    await page.waitForLoadState('networkidle');
+    const showcase = page.getByRole('group', { name: 'Previews of my projects' });
+    await expect(showcase.getByRole('button', { name: 'MyBabyLog' })).toHaveAttribute('aria-current', 'true');
+
+    await showcase.getByRole('button', { name: 'Convocatoria' }).click();
+    await expect(showcase.getByRole('button', { name: 'Convocatoria' })).toHaveAttribute('aria-current', 'true');
+    await expect(showcase.getByRole('link', { name: /Read the case study/ })).toHaveAttribute(
+      'href',
+      '/en/work/convocatoria',
+    );
+    await expect(showcase.getByRole('button', { name: 'Play the slideshow' })).toBeVisible();
+  });
+
+  test('shows the companies and links to the Stack Overflow profile', async ({ page }) => {
+    await page.goto('/en');
+    const panel = page.getByRole('region', { name: 'Experience at a glance' });
+    for (const name of ['Cognizant', 'GFT', 'Inditex', 'J.P. Morgan Chase', 'DBS', 'Bankia']) {
+      await expect(panel.getByRole('img', { name, exact: true })).toBeVisible();
+    }
+    await expect(panel.getByRole('link', { name: /Stack Overflow/ })).toHaveAttribute(
+      'href',
+      'https://stackoverflow.com/users/6450931/alberto-perez',
+    );
+  });
+
+  test('the hero hint opens the command menu', async ({ page }) => {
+    await page.goto('/en');
+    await page.waitForLoadState('networkidle');
+    await page.getByRole('button', { name: /Jump anywhere/ }).click();
+    await expect(page.getByRole('dialog')).toBeVisible();
+    await expect(page.getByRole('combobox', { name: 'Search pages and actions' })).toBeFocused();
+  });
+
+  test('the Konami code rains footballs', async ({ page, browserName }) => {
+    test.skip(browserName !== 'chromium');
+    await page.goto('/en');
+    await page.waitForLoadState('networkidle');
+    for (const key of [
+      'ArrowUp',
+      'ArrowUp',
+      'ArrowDown',
+      'ArrowDown',
+      'ArrowLeft',
+      'ArrowRight',
+      'ArrowLeft',
+      'ArrowRight',
+      'b',
+      'a',
+    ]) {
+      await page.keyboard.press(key);
+    }
+    await expect(page.locator('.ball').first()).toBeAttached();
+  });
+});

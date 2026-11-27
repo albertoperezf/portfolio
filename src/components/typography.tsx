@@ -16,18 +16,18 @@ export function SectionHeading({
           {eyebrow}
         </p>
       )}
-      <Heading id={id} className="mt-2 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+      <Heading id={id} className="mt-2 font-display text-4xl tracking-tight text-balance sm:text-5xl">
         {title}
       </Heading>
     </div>
   );
 }
 
-/** Renders `[text]` segments with the accent colour. */
+/** Renders `[text]` segments in the accent colour and the italic display face. */
 export function Highlight({ text }: { text: string }) {
   return text.split(/(\[[^\]]+\])/).map((part, index) =>
     part.startsWith('[') ? (
-      <span key={index} className="text-accent">
+      <span key={index} className="font-display-italic text-accent italic">
         {part.slice(1, -1)}
       </span>
     ) : (
@@ -37,4 +37,4 @@ export function Highlight({ text }: { text: string }) {
 }
 
 export const pageTitleClass =
-  'text-[clamp(2.5rem,6vw,4rem)] leading-[1.05] font-semibold tracking-tighter text-balance';
+  'font-display text-[clamp(2.75rem,6.5vw,4.75rem)] leading-[1] font-normal tracking-tight text-balance';

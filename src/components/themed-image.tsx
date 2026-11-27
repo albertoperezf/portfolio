@@ -8,7 +8,7 @@ interface ThemedImageProps {
   height: number;
   sizes: string;
   className?: string;
-  /** For above-the-fold images: both variants load eagerly, so the visible one isn't delayed. */
+  /** For above-the-fold images: the visible variant is fetched with high priority (the hidden one stays lazy and never loads). */
   eager?: boolean;
 }
 
@@ -23,7 +23,7 @@ export function ThemedImage({
   className = '',
   eager = false,
 }: ThemedImageProps) {
-  const loading = eager ? ({ loading: 'eager', fetchPriority: 'high' } as const) : {};
+  const loading = eager ? ({ fetchPriority: 'high' } as const) : {};
   return (
     <>
       <Image
@@ -61,7 +61,7 @@ export function ThemedImageLink({
   openFullSizeLabel,
   eager = false,
 }: ThemedImageProps & { linkClassName?: string; openFullSizeLabel: string }) {
-  const loading = eager ? ({ loading: 'eager', fetchPriority: 'high' } as const) : {};
+  const loading = eager ? ({ fetchPriority: 'high' } as const) : {};
   return (
     <>
       <a href={light} className={`only-light ${linkClassName}`}>

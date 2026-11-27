@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist, Instrument_Serif } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { SiteFooter } from '@/components/site-footer';
@@ -11,8 +11,19 @@ import { themeScript } from '@/lib/theme';
 import '../globals.css';
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
-// Only used for small labels, so it shouldn't compete with the main font for bandwidth.
-const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'], preload: false });
+// Display face for headings only. The italic cut is just for highlighted words, so it isn't preloaded.
+const instrumentSerif = Instrument_Serif({
+  variable: '--font-instrument-serif',
+  subsets: ['latin'],
+  weight: '400',
+});
+const instrumentSerifItalic = Instrument_Serif({
+  variable: '--font-instrument-serif-italic',
+  subsets: ['latin'],
+  weight: '400',
+  style: 'italic',
+  preload: false,
+});
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -37,7 +48,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#fafaf9' },
+    { media: '(prefers-color-scheme: light)', color: '#faf7f2' },
     { media: '(prefers-color-scheme: dark)', color: '#0c0a09' },
   ],
 };
@@ -50,7 +61,7 @@ export default async function LocaleLayout({ children }: LayoutProps<'/[locale]'
     <html
       lang={locale}
       data-scroll-behavior="smooth"
-      className={`${geistSans.variable} ${geistMono.variable}`}
+      className={`${geistSans.variable} ${instrumentSerif.variable} ${instrumentSerifItalic.variable}`}
       suppressHydrationWarning
     >
       <head>
