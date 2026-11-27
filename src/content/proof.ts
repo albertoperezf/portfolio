@@ -8,6 +8,8 @@ export interface Company {
   height: number;
   /** Rendered height in px, tuned so every mark has a similar visual weight. */
   display: number;
+  /** For brands whose public mark is only an icon: the name is written next to it. */
+  wordmark?: string;
 }
 
 export const employers: Company[] = [
@@ -21,6 +23,14 @@ export const clients: Company[] = [
   { name: 'J.P. Morgan Chase', logo: '/logos/jpmorgan.svg', width: 1000, height: 142, display: 20 },
   { name: 'DBS', logo: '/logos/dbs.svg', width: 579, height: 173, display: 26 },
   { name: 'Bankia', logo: '/logos/bankia.svg', width: 300, height: 108, display: 30 },
+  {
+    name: 'FirstKey Homes',
+    logo: '/logos/firstkey.png',
+    width: 128,
+    height: 128,
+    display: 32,
+    wordmark: 'FirstKey Homes',
+  },
 ];
 
 export interface StackItem {

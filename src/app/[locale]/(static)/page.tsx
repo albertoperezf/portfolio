@@ -171,7 +171,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section aria-labelledby="credentials-title" className="mt-24 sm:mt-32">
+      <section aria-labelledby="credentials-title" className="mt-16 sm:mt-24">
         <h2 id="credentials-title" className="sr-only">
           {t.home.credentials.label}
         </h2>
@@ -188,14 +188,18 @@ export default async function HomePage() {
               <CompanyLogos
                 companies={employers}
                 label={t.home.credentials.employers}
-                className="grid-cols-2 lg:grid-cols-1"
+                className="grid-cols-2 lg:grid-cols-1 [&>li:last-child:nth-child(odd)]:col-span-2 lg:[&>li:last-child:nth-child(odd)]:col-span-1"
               />
             </div>
           </div>
           <div className="bg-bg p-8 lg:col-span-5">
             <h3 className={panelTitle}>{t.home.credentials.clients}</h3>
             <div className="mt-4">
-              <CompanyLogos companies={clients} label={t.home.credentials.clients} />
+              <CompanyLogos
+                companies={clients}
+                label={t.home.credentials.clients}
+                className="grid-cols-2 [&>li:last-child:nth-child(odd)]:col-span-2"
+              />
             </div>
           </div>
           <div className="bg-bg p-8 lg:col-span-7">
@@ -243,7 +247,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section aria-labelledby="work-title" className="mt-32">
+      <section aria-labelledby="work-title" className="mt-20 sm:mt-24">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <SectionHeading id="work-title" eyebrow={t.home.workEyebrow} title={t.home.workTitle} />
           <Link href={localizedPath(locale, '/work')} className="link inline-flex items-center gap-2 font-medium">
@@ -251,16 +255,16 @@ export default async function HomePage() {
             <ArrowRightIcon className="size-4" />
           </Link>
         </div>
-        <ul className="mt-12 grid gap-6 md:grid-cols-2">
-          {featured.map((project, index) => (
-            <li key={project.slug} className={index === 0 && featured.length % 2 === 1 ? 'md:col-span-2' : undefined}>
-              <ProjectCard project={project} locale={locale} copy={t.work} />
+        <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {featured.map((project) => (
+            <li key={project.slug}>
+              <ProjectCard project={project} locale={locale} copy={t.work} compact />
             </li>
           ))}
         </ul>
       </section>
 
-      <section aria-labelledby="proof-title" className="mt-32">
+      <section aria-labelledby="proof-title" className="mt-20 sm:mt-24">
         <SectionHeading id="proof-title" eyebrow={t.home.proof.eyebrow} title={t.home.proof.title} />
         <p className="mt-4 max-w-[62ch] text-lg leading-relaxed text-muted">{t.home.proof.intro}</p>
 
@@ -284,7 +288,7 @@ export default async function HomePage() {
           </p>
         </div>
 
-        <div className="mt-20 grid gap-16 lg:grid-cols-2 lg:gap-12">
+        <div className="mt-14 grid gap-14 lg:grid-cols-2 lg:gap-12">
           <div>
             <h3 className="font-display text-3xl tracking-tight sm:text-4xl">{t.home.proof.stackTitle}</h3>
             <p className="mt-3 max-w-[48ch] leading-relaxed text-muted">{t.home.proof.stackIntro}</p>
@@ -349,7 +353,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section aria-labelledby="beyond-title" className="mt-32">
+      <section aria-labelledby="beyond-title" className="mt-20 sm:mt-24">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <SectionHeading id="beyond-title" eyebrow={t.home.beyond.eyebrow} title={t.home.beyond.title} />
@@ -369,22 +373,6 @@ export default async function HomePage() {
               </li>
             ))}
           </ul>
-        </div>
-      </section>
-
-      <section aria-labelledby="cta-title" className="mt-32">
-        <div className="scroll-rise rounded-3xl bg-surface px-8 py-14 text-center sm:px-16 sm:py-20">
-          <h2 id="cta-title" className="font-display text-4xl tracking-tight text-balance sm:text-5xl">
-            {t.home.cta.title}
-          </h2>
-          <p className="mx-auto mt-4 max-w-[48ch] text-lg leading-relaxed text-muted">{t.home.cta.body}</p>
-          <Link
-            href={localizedPath(locale, '/contact')}
-            className="mt-8 inline-flex min-h-11 items-center gap-2 rounded-full bg-fg px-6 font-medium text-bg hover:opacity-90"
-          >
-            {t.home.cta.button}
-            <ArrowRightIcon className="size-4" />
-          </Link>
         </div>
       </section>
 

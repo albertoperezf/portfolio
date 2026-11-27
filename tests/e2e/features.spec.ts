@@ -151,7 +151,16 @@ test.describe('landing page', () => {
   test('shows the companies and links to the Stack Overflow profile', async ({ page }) => {
     await page.goto('/en');
     const panel = page.getByRole('region', { name: 'Experience at a glance' });
-    for (const name of ['Cognizant', 'GFT', 'MMG (dezzai)', 'Inditex', 'J.P. Morgan Chase', 'DBS', 'Bankia']) {
+    for (const name of [
+      'Cognizant',
+      'GFT',
+      'MMG (dezzai)',
+      'Inditex',
+      'J.P. Morgan Chase',
+      'DBS',
+      'Bankia',
+      'FirstKey Homes',
+    ]) {
       await expect(panel.getByRole('img', { name, exact: true })).toBeVisible();
     }
     await expect(panel.getByRole('link', { name: /Stack Overflow/ })).toHaveAttribute(

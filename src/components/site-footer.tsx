@@ -15,7 +15,7 @@ export async function SiteFooter() {
   const linkClass = 'link inline-flex min-h-6 items-center text-fg';
 
   return (
-    <footer className="mx-auto mt-32 w-full max-w-5xl border-t border-border px-6 py-10 text-sm text-muted">
+    <footer className="mx-auto mt-24 w-full max-w-5xl border-t border-border px-6 py-10 text-sm text-muted">
       <div className="flex flex-wrap justify-between gap-x-12 gap-y-6">
         <nav aria-label={t.a11y.socialLinks}>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">

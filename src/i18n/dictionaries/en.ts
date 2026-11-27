@@ -105,19 +105,14 @@ export const en = {
     beyond: {
       eyebrow: '03 · Beyond the code',
       title: 'The person behind the pull requests',
-      body: 'I’m a frontend developer, but also a husband and the father of two wonderful boys. I’m a big Real Madrid fan, I play football whenever I can, and every now and then I lose a round of Mario Kart or Mario Party against my sons or my friends.',
+      body: 'I’m a frontend developer, but also a husband and the father of two wonderful boys. I’m a big Real Madrid fan, I play football whenever I can, and I enjoy a round of Mario Kart or Mario Party with my sons or my friends.',
       interestsLabel: 'Things I enjoy outside work',
       interests: {
         family: { title: 'Family first', body: 'Husband and dad of two boys.' },
         madrid: { title: 'Hala Madrid', body: 'Real Madrid, in good times and bad.' },
         football: { title: 'Football', body: 'I play as often as my legs allow.' },
-        games: { title: 'Mario Kart & Mario Party', body: 'Friendly rivalry with my sons and friends.' },
+        games: { title: 'Mario Kart & Mario Party', body: 'Good times with my sons and friends.' },
       },
-    },
-    cta: {
-      title: 'Have a project or an idea?',
-      body: 'I’d love to hear about it. LinkedIn is the quickest way to reach me.',
-      button: 'Get in touch',
     },
   },
   about: {

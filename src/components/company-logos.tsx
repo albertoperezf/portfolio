@@ -28,6 +28,11 @@ export function CompanyLogos({
             style={{ height: company.display, width: 'auto' }}
             className="max-w-full"
           />
+          {company.wordmark && (
+            <span aria-hidden="true" className="ml-2 text-sm font-semibold tracking-tight text-[#1c1917]">
+              {company.wordmark}
+            </span>
+          )}
         </li>
       ))}
     </ul>

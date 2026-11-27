@@ -22,12 +22,15 @@ export function ProjectCard({
   copy,
   headingLevel: Heading = 'h3',
   priority = false,
+  compact = false,
 }: {
   project: Project;
   locale: Locale;
   copy: ProjectCardCopy;
   headingLevel?: 'h2' | 'h3';
   priority?: boolean;
+  /** Tighter card for multi-column layouts: less padding and a shorter stack list. */
+  compact?: boolean;
 }) {
   const href = project.caseStudy ? localizedPath(locale, `/work/${project.slug}`) : undefined;
 
@@ -46,9 +49,9 @@ export function ProjectCard({
           </div>
         </ViewTransition>
       )}
-      <div className="flex flex-1 flex-col p-6 sm:p-8">
+      <div className={`flex flex-1 flex-col ${compact ? 'p-5' : 'p-6 sm:p-8'}`}>
         <p className="text-sm text-muted">{project.kind[locale]}</p>
-        <Heading className="mt-2 text-xl font-semibold tracking-tight">
+        <Heading className={`mt-2 font-semibold tracking-tight ${compact ? 'text-lg' : 'text-xl'}`}>
           {href ? (
             <Link
               href={href}
@@ -60,9 +63,11 @@ export function ProjectCard({
             project.name
           )}
         </Heading>
-        <p className="mt-3 leading-relaxed text-muted">{project.summary[locale]}</p>
-        <TechList items={project.tech} label={copy.stackLabel} />
-        <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-2 pt-6 font-medium">
+        <p className={`mt-3 leading-relaxed text-muted ${compact ? 'text-sm' : ''}`}>{project.summary[locale]}</p>
+        <TechList items={compact ? project.tech.slice(0, 4) : project.tech} label={copy.stackLabel} />
+        <div
+          className={`mt-auto flex flex-wrap items-center gap-x-6 gap-y-2 pt-6 font-medium ${compact ? 'text-sm' : ''}`}
+        >
           {href && (
             <span aria-hidden="true" className="inline-flex items-center gap-2 text-fg">
               {copy.caseStudy}

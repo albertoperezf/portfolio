@@ -112,19 +112,14 @@ export const es: Dictionary = {
     beyond: {
       eyebrow: '03 · Más allá del código',
       title: 'La persona detrás de los pull requests',
-      body: 'Soy desarrollador frontend, pero también marido y padre de dos chicos maravillosos. Soy muy fan del Real Madrid, juego al fútbol siempre que puedo y de vez en cuando pierdo una carrera de Mario Kart o una partida de Mario Party contra mis hijos o mis amigos.',
+      body: 'Soy desarrollador frontend, pero también marido y padre de dos chicos maravillosos. Soy muy fan del Real Madrid, juego al fútbol siempre que puedo y disfruto de una carrera de Mario Kart o una partida de Mario Party con mis hijos o mis amigos.',
       interestsLabel: 'Lo que me gusta fuera del trabajo',
       interests: {
         family: { title: 'La familia primero', body: 'Marido y padre de dos chicos.' },
         madrid: { title: 'Hala Madrid', body: 'Real Madrid, en las buenas y en las malas.' },
         football: { title: 'Fútbol', body: 'Juego tanto como me aguantan las piernas.' },
-        games: { title: 'Mario Kart y Mario Party', body: 'Rivalidad sana con mis hijos y mis amigos.' },
+        games: { title: 'Mario Kart y Mario Party', body: 'Buenos ratos con mis hijos y mis amigos.' },
       },
-    },
-    cta: {
-      title: '¿Tienes un proyecto o una idea?',
-      body: 'Me encantará escucharlo. LinkedIn es la forma más rápida de contactarme.',
-      button: 'Ponte en contacto',
     },
   },
   about: {
