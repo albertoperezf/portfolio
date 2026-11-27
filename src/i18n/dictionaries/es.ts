@@ -88,7 +88,7 @@ export const es: Dictionary = {
         seo: 'SEO',
       },
       scoreDescription: '{label}: {score} sobre 100',
-      measured: 'Lighthouse en móvil, medido el {date}.',
+      measured: 'Lighthouse en móvil, medido en la web publicada el {date}.',
       stackTitle: 'Tecnología de primer nivel',
       stackIntro: 'El stack moderno detrás de esta web y de mis proyectos personales, siempre actualizado.',
       stackLabel: 'Tecnologías',

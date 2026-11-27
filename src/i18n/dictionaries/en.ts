@@ -87,7 +87,7 @@ export const en = {
         seo: 'SEO',
       },
       scoreDescription: '{label}: {score} out of 100',
-      measured: 'Lighthouse on mobile, measured on {date}.',
+      measured: 'Lighthouse on mobile, measured on the live site on {date}.',
       stackTitle: 'Top-of-the-line tech',
       stackIntro: 'The modern stack behind this site and my side projects, kept up to date.',
       stackLabel: 'Technologies',

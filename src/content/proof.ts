@@ -46,8 +46,8 @@ export const modernStack: (StackItem & { version?: string })[] = [
   { name: 'Lighthouse CI', icon: 'lighthouse' },
 ];
 
-/** Lighthouse (mobile) scores of this site, measured against the production build. */
+/** Lighthouse (mobile) scores of this site, measured on the live site (5 runs, lowest score shown). */
 export const lighthouse = {
   measured: '2026-11-27',
-  scores: { performance: 95, accessibility: 100, bestPractices: 100, seo: 100 },
+  scores: { performance: 99, accessibility: 100, bestPractices: 100, seo: 100 },
 };
