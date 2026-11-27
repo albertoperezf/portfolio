@@ -13,6 +13,7 @@ export interface Company {
 export const employers: Company[] = [
   { name: 'Cognizant', logo: '/logos/cognizant.svg', width: 246, height: 44, display: 30 },
   { name: 'GFT', logo: '/logos/gft.svg', width: 1024, height: 197, display: 34 },
+  { name: 'MMG (dezzai)', logo: '/logos/dezzai.png', width: 724, height: 200, display: 30 },
 ];
 
 export const clients: Company[] = [

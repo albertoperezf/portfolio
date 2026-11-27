@@ -38,6 +38,7 @@ If Playwright can't download its browser (corporate proxy), use the installed Ch
 
 - Profile, experience, skills, education, certifications: `src/content/profile.ts` (also feeds the PDF CV)
 - Projects, case studies, lab demos and earlier projects: `src/content/projects.ts` (screenshots in `public/work/`)
+- Home page proof: employer and client logos, tech stack and the published Lighthouse scores in `src/content/proof.ts` (logos in `public/logos/`)
 - UI copy: `src/i18n/dictionaries/{en,es}.ts` (`es` is typed against `en`, so a missing key fails `tsc`)
 
 ## Deploying to Vercel

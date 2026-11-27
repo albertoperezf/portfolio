@@ -73,7 +73,6 @@ export const es: Dictionary = {
     },
     workEyebrow: '01 · Proyectos destacados',
     workTitle: 'Cosas que he construido',
-    caseStudy: 'Leer el caso de estudio',
     allWork: 'Todos los proyectos',
     proof: {
       eyebrow: '02 · Pruebas',
@@ -132,7 +131,7 @@ export const es: Dictionary = {
     title: 'Sobre mí',
     bio: [
       'Soy Ingeniero de Computación por la Universidad Rafael Urdaneta (Venezuela) y desarrollador frontend con más de {years} años de experiencia creando aplicaciones web y móviles híbridas en equipos Scrum y Kanban. También soy Scrum Manager certificado.',
-      'Actualmente soy Senior Frontend Developer en Cognizant y trabajo para el Grupo Inditex en Ranking. Antes pasé más de cuatro años en GFT desarrollando aplicaciones con React y Redux para clientes de banca e inmobiliarios en España, Singapur y Estados Unidos, y dos años en MedLab Media Group, donde también me encargué del proceso Scrum del equipo.',
+      'Actualmente soy Senior Frontend Developer en Cognizant y trabajo para el Grupo Inditex en Ranking. Antes pasé más de cuatro años en GFT desarrollando aplicaciones con React y Redux para clientes de banca e inmobiliarios en España, Singapur y Estados Unidos, y dos años en MMG (MedLab Media Group), donde también me encargué del proceso Scrum del equipo.',
       'Me gusta aprender en público: cursos, conferencias y meetups, y responder preguntas en Stack Overflow.',
     ],
     summaryTitle: 'De un vistazo',

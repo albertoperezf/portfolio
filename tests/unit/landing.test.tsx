@@ -88,6 +88,15 @@ describe('PhoneShowcase', () => {
     expect(screen.getByRole('button', { name: 'Play' })).toBeInTheDocument();
   });
 
+  it('resumes when Play is pressed even though the pointer is still on the controls', async () => {
+    render(<PhoneShowcase slides={slides} copy={copy} badges={badges} />);
+    await userEvent.click(screen.getByRole('button', { name: 'Pause' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Play' }));
+    act(() => void vi.advanceTimersByTime(5100));
+    expect(screen.getByRole('button', { name: 'Beta' })).toHaveAttribute('aria-current', 'true');
+    expect(screen.getByRole('button', { name: 'Pause' })).toBeInTheDocument();
+  });
+
   it('does not rotate or offer a pause button when reduced motion is requested', () => {
     mockReducedMotion(true);
     render(<PhoneShowcase slides={slides} copy={copy} badges={badges} />);

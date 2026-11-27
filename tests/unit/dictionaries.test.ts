@@ -64,6 +64,16 @@ describe('content', () => {
     }
   });
 
+  it('only shows employer logos for companies listed in the experience', () => {
+    for (const employer of employers) {
+      const name = employer.name.split(' ')[0];
+      expect(
+        experience.some((job) => job.company.includes(name)),
+        employer.name,
+      ).toBe(true);
+    }
+  });
+
   it('has unique project slugs and includes every case study in staticRoutes', () => {
     const slugs = projects.map((project) => project.slug);
     expect(new Set(slugs).size).toBe(slugs.length);

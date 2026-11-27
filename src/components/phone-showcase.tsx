@@ -50,9 +50,11 @@ export function PhoneShowcase({
 }) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  // Pressing Play overrides the hover/focus pause, otherwise it would do nothing while the pointer is still on the button.
+  const [forcedPlay, setForcedPlay] = useState(false);
   const [engaged, setEngaged] = useState(false);
   const reducedMotion = useSyncExternalStore(subscribeReducedMotion, reducedMotionSnapshot, () => false);
-  const playing = !paused && !engaged && !reducedMotion;
+  const playing = !paused && (forcedPlay || !engaged) && !reducedMotion;
   const active = slides[index];
 
   useEffect(() => {
@@ -69,9 +71,15 @@ export function PhoneShowcase({
       aria-roledescription="carousel"
       aria-label={copy.label}
       onMouseEnter={() => setEngaged(true)}
-      onMouseLeave={() => setEngaged(false)}
+      onMouseLeave={() => {
+        setEngaged(false);
+        setForcedPlay(false);
+      }}
       onFocus={() => setEngaged(true)}
-      onBlur={() => setEngaged(false)}
+      onBlur={() => {
+        setEngaged(false);
+        setForcedPlay(false);
+      }}
       className="relative mx-auto w-full max-w-sm"
     >
       <figure className="relative">
@@ -138,6 +146,7 @@ export function PhoneShowcase({
                 onClick={() => {
                   setIndex(position);
                   setPaused(true);
+                  setForcedPlay(false);
                 }}
                 className="inline-flex min-h-9 items-center rounded-full px-3 text-sm text-muted hover:bg-surface hover:text-fg aria-[current=true]:bg-fg aria-[current=true]:text-bg"
               >
@@ -149,7 +158,10 @@ export function PhoneShowcase({
         {!reducedMotion && (
           <button
             type="button"
-            onClick={() => setPaused((value) => !value)}
+            onClick={() => {
+              setForcedPlay(paused);
+              setPaused((value) => !value);
+            }}
             className="inline-flex size-9 items-center justify-center rounded-full text-muted hover:bg-surface hover:text-fg"
           >
             {paused ? <PlayIcon className="size-4" /> : <PauseIcon className="size-4" />}

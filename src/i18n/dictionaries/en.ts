@@ -72,7 +72,6 @@ export const en = {
     },
     workEyebrow: '01 · Selected work',
     workTitle: 'Things I’ve built',
-    caseStudy: 'Read the case study',
     allWork: 'All projects',
     proof: {
       eyebrow: '02 · Proof',
@@ -125,7 +124,7 @@ export const en = {
     title: 'About me',
     bio: [
       'I’m a Computer Engineer from Universidad Rafael Urdaneta (Venezuela) and a frontend developer with more than {years} years of experience building web and hybrid mobile applications in Scrum and Kanban teams. I’m also a certified Scrum Manager.',
-      'Today I’m a Senior Frontend Developer at Cognizant, working for the Inditex Group on Ranking. Before that I spent more than four years at GFT building React and Redux applications for banking and real estate clients in Spain, Singapore and the USA, and two years at MedLab Media Group, where I also ran the team’s Scrum process.',
+      'Today I’m a Senior Frontend Developer at Cognizant, working for the Inditex Group on Ranking. Before that I spent more than four years at GFT building React and Redux applications for banking and real estate clients in Spain, Singapore and the USA, and two years at MMG (MedLab Media Group), where I also ran the team’s Scrum process.',
       'I enjoy learning in public: courses, conferences and meetups, and answering questions on Stack Overflow.',
     ],
     summaryTitle: 'At a glance',

@@ -65,7 +65,7 @@ export const experience: Experience[] = [
   },
   {
     id: 'medlab',
-    company: 'MedLab Media Group',
+    company: 'MMG (MedLab Media Group)',
     location: { en: 'Las Rozas, Madrid, Spain', es: 'Las Rozas, Madrid, España' },
     roles: [
       {
@@ -216,10 +216,11 @@ export const skills: SkillGroup[] = [
       'Express',
       'HTML',
       'CSS',
-      'Sass',
-      'Tailwind CSS',
-      'Styled Components',
     ]),
+  },
+  {
+    name: { en: 'Styling & UI', es: 'Estilos e interfaz' },
+    items: same(['Tailwind CSS', 'Sass', 'PostCSS', 'Styled Components', 'Ant Design', 'Bootstrap']),
   },
   {
     name: { en: 'Data', es: 'Datos' },
