@@ -118,7 +118,6 @@ export default async function HomePage() {
       />
 
       <section aria-labelledby="hero-title" className="relative isolate">
-        <div aria-hidden="true" className="hero-glow absolute -inset-x-6 -top-24 bottom-0 -z-10 sm:-top-32" />
         <div className="grid items-center gap-20 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-10">
           <div>
             <p className="rise font-mono text-sm text-muted" style={stagger(0)}>

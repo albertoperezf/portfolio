@@ -86,7 +86,7 @@ export function PhoneShowcase({
         <div className="relative mx-auto w-[15rem] sm:w-[16.5rem]">
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute -inset-10 -z-10 rounded-full bg-accent/20 blur-3xl motion-reduce:hidden"
+            className="phone-glow absolute top-1/2 left-1/2 -z-10 aspect-square w-[min(26rem,calc(100vw-3rem))] -translate-x-1/2 -translate-y-1/2"
           />
           <div className="phone float">
             <div className="phone-screen">
